@@ -1,0 +1,8 @@
+.viewBox {
+    width: 400px;
+    height: 200px;
+    display: grid;
+    place-content: center;
+    border: 3px solid #eee;
+    border-radius: 3px;
+}

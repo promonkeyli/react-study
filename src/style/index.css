@@ -1,0 +1,53 @@
+@import "normalize.css";
+
+/*css style reset*/
+* {
+    box-sizing: border-box;
+}
+a {
+    text-decoration: none;
+    color: #333;
+}
+button {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    height: 30px;
+    border: 1px solid transparent;
+    border-radius: 3px;
+}
+
+/*layout style*/
+.page-container {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-rows: 100%;
+    grid-template-columns: 300px calc(100vw - 300px);
+    grid-template-areas: 'aside main';
+}
+aside {
+    grid-area: aside;
+    border-right: 1px solid #eee;
+    padding-top: 100px;
+}
+main {
+    grid-area: main;
+    display: grid;
+    place-content: center;
+}
+
+/*other style*/
+.aside-item {
+    height: 50px;
+    display: grid;
+    place-content: center;
+    border: 1px solid #eee;
+    margin: 0 -1px -1px 0;
+}
+.center {
+    width: 100%;
+    height: 100%;
+    display: grid;
+    place-content: center;
+}
