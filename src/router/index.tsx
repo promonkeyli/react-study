@@ -6,6 +6,7 @@ const UseState = React.lazy(() => import('../page/UseState'));
 const UseEffect = React.lazy(() => import('../page/UseEffect'));
 const UseReducer = React.lazy(() => import('../page/UseReducer'));
 const Timer = React.lazy(() => import('../page/UseTimer'));
+const Redux = React.lazy(() => import('../page/Redux'));
 
 export interface RouteObj extends RouteObject{
     meta?: MetaInfo
@@ -18,7 +19,7 @@ export type MetaInfo = {
 const router: Array<RouteObj> = [
     {
         path: '/',
-        element: <Navigate to='/use-state'/>,
+        element: <Navigate to='/redux'/>,
     },
     {
         path: '/use-state',
@@ -39,6 +40,11 @@ const router: Array<RouteObj> = [
         path: '/timer',
         element: <Timer/>,
         meta: {name: 'timer'}
+    },
+    {
+        path: '/redux',
+        element: <Redux/>,
+        meta: {name: 'redux'}
     },
     {
         path: '*',

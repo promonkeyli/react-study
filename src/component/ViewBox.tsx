@@ -5,7 +5,7 @@ function ViewBox(props: ViewBoxProps) {
     const { value } = props;
     return (
         <div className={style.viewBox}>
-            {value}
+            {value || props.children }
         </div>
     )
 }
