@@ -16,12 +16,8 @@
 
 import ViewBox from "../component/ViewBox";
 import {useContext} from "react";
-import {CountContext} from "../lib/context";
-import {connect} from 'react-redux';
 
 function Redux() {
-const {countContext} = useContext(CountContext);
-    console.log(countContext);
     const handleIncrement = () => {
         console.log('+');
     }

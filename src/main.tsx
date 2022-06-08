@@ -1,18 +1,18 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
 import App from './App';
 import './style/index.css';
-import { BrowserRouter as Router} from 'react-router-dom';
-import { configureStore } from '@reduxjs/toolkit';
-import counterSlice from "./store";
-import { CountContext } from './lib/context';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { createRoot } from 'react-dom/client';
+import { Provider } from 'react-redux';
+import {store} from "./store";
 
-const store = configureStore({ reducer: counterSlice.reducer })
+const container = document.getElementById('root');
+const root = createRoot(container!);
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+root.render(
     <Router>
-        <CountContext.Provider value={store}>
+        <Provider store={store}>
             <App/>
-        </CountContext.Provider>
+        </Provider>
     </Router>
 )

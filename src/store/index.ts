@@ -19,9 +19,9 @@ const counterSlice = createSlice({
     }
 })
 export default counterSlice;
-/*const store = configureStore({
+const store = configureStore({
     reducer: counterSlice.reducer
-})*/
+})
 
 // Can still subscribe to the store
 // store.subscribe(() => console.log(store.getState()))
@@ -33,3 +33,5 @@ export default counterSlice;
 // {value: 2}
 // store.dispatch(decremented())
 // {value: 1}
+
+export {store}
