@@ -15,36 +15,30 @@
  * */
 
 import ViewBox from "../component/ViewBox";
-import {useContext} from "react";
-import {CountContext} from "../lib/context";
-import {connect} from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import {useEffect} from "react";
+import { increment, decrement} from '../store/feature/counterSlice';
 
 function Redux() {
-const {countContext} = useContext(CountContext);
-    console.log(countContext);
-    const handleIncrement = () => {
-        console.log('+');
-    }
-    const handleDecrement = () => {
-        console.log('-');
-    }
     return (
-        <>
-          <ViewBox>
-              <ReduxView handleIncrement={handleIncrement} handleDecrement={handleDecrement}/>
-          </ViewBox>
-        </>
+      <ViewBox>
+          <ReduxView/>
+      </ViewBox>
     )
 }
 function ReduxView(props: any) {
-    const {handleIncrement, handleDecrement} = props;
+    const dispatch = useDispatch();
+    const { value } = useSelector((state: any) => state.counter)
+    useEffect(() => {
+    }, [])
+
     return (
         <>
             <div style={{textAlign: 'center'}}>redux counter</div>
             <div style={{marginTop: '20px'}}>
-                <button onClick={handleIncrement} style={{width: '50px'}}>+</button>
-                <span style={{display: 'inline-block', width: '50px', textAlign: 'center'}}>{0}</span>
-                <button onClick={handleDecrement} style={{width: '50px'}}>-</button>
+                <button onClick={() => dispatch(increment())} style={{width: '50px'}}>+</button>
+                <span style={{display: 'inline-block', width: '50px', textAlign: 'center'}}>{value}</span>
+                <button onClick={() => dispatch(decrement())} style={{width: '50px'}}>-</button>
             </div>
         </>
     )
