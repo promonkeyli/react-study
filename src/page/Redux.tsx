@@ -14,19 +14,49 @@
  *
  * */
 
-import ViewBox from "../component/ViewBox";
-import { useDispatch, useSelector } from 'react-redux';
-import {useEffect} from "react";
-import { increment, decrement} from '../store/feature/counterSlice';
 
+
+/*
+* RTK方式的写法是目前官方推荐的方式，他需要使用两个包，react-redux reduxjs/toolkit
+*  前者是react与redux沟通的桥梁，后者提供了工具供我们驱使redux去管理state
+*
+*
+*
+*
+* */
+
+
+
+
+import ViewBox from "../component/ViewBox";
+import {useDispatch, useSelector} from "react-redux";
+import {setAge, setName} from "../store/store";
+// import { useDispatch, useSelector } from 'react-redux';
+// import {useEffect} from "react";
+// import { increment, decrement} from '../store/feature/counterSlice';
 function Redux() {
+    // useSelector(); 用于加载state数据
+    const studentState = useSelector((state: any) => state.student); // 用于state数据的获取
+    const dispatch = useDispatch(); // 获取派发器对象，同时需要导入action构建器，派发时使用
+    const handleNameChange = () => {
+        dispatch(setName('猪八戒')); // setName action对象传递的第一个属性，会转化为action的payload属性
+    }
+    const handleAgeChange = () => {
+        dispatch(setAge(13))
+    }
     return (
       <ViewBox>
-          <ReduxView/>
+          {/*<ReduxView/>*/}
+          <div>{studentState.name}</div>
+          <div>{studentState.age}</div>
+          <hr/>
+          <div><button onClick={handleNameChange}>name change</button></div>
+          <hr/>
+          <div><button onClick={handleAgeChange}>age change</button></div>
       </ViewBox>
     )
 }
-function ReduxView(props: any) {
+/*function ReduxView(props: any) {
     const dispatch = useDispatch();
     const { value } = useSelector((state: any) => state.counter)
     useEffect(() => {
@@ -42,5 +72,5 @@ function ReduxView(props: any) {
             </div>
         </>
     )
-}
+}*/
 export default Redux;

@@ -10,10 +10,12 @@ a {
 }
 button {
     margin: 0;
-    padding: 0;
+    padding: 5px;
     outline: none;
     height: 30px;
-    border: 1px solid transparent;
+    background-color: #fff;
+    border: 2px solid #eee;
+    /*background-color: #fff;*/
     border-radius: 3px;
 }
 
